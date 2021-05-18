@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap" rel="stylesheet">
+        <style>
+            body {font-family: 'Roboto Mono', monospace; letter-spacing: 5px;}
+            #container {display: flex; flex-direction: column; justify-content: center; text-align: center;}
+        </style>
+        <title>Sorting Algos</title>
+    </head>
+    <body>
+        <div class="home">
+            <a href="../index.html" class="home-button">Back</a>
+        </div>
+        <div id="container">
+            <h1 id="text"></h1>
+
+            <div class="bubble">
+                <a href="Bubble Sort/index.html" class="bubble">Bubble Sort</a>
+            </div>
+
+            <div class="selection">
+                <a href="Selection Sort/index.html" class="selection">Selection Sort</a>
+            </div>
+
+            <div class="insertion">
+                <a href="Insertion Sort/index.html" class="insertion">Insertion Sort</a>
+            </div>
+
+            <div class="quick">
+                <a href="Quick Sort/index.html" class="quick">Quick Sort</a>
+            </div>
+
+            <div class="merge">
+                <a href="Merge Sort/index.html" class="merge">Merge Sort</a>
+            </div>
+
+        </div>
+
+        <script src="./scrambling-text.js"></script>
+            <script>
+                const TEXTS = [
+                    '- Sorting Algorithms -',
+                    'Bubble Sort',
+                    'Selection Sort',
+                    'Insertion Sort',
+                    'Quick sort',
+                    'Merge sort'
+                ];
+
+                const scrambler = new window.Scrambler();
+                const handleScramble = (text) => {
+                    document.getElementById('text').innerHTML = text;
+                }
+
+                let i = 0;
+                function printText() {
+                    scrambler.scramble(TEXTS[i % TEXTS.length], handleScramble); 
+                    setTimeout(printText, 5000);
+                    i++;
+                }
+                printText();
+            </script>
+    </body>
+</html>
